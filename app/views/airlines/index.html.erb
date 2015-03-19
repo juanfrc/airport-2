@@ -1,0 +1,19 @@
+<h1>Airlines</h1>
+
+<table>
+	<thead>
+		<th>Airline</th>
+		<th># flights</th>
+		<th>Edit | Delete</th>
+	</thead>	
+
+	<% @airlines.each do |airline| %>
+		<tr>
+			<td><%= airline.name %></td>
+			<td>#vuelos</td>
+			<td><%= link_to "Edit", edit_airline_path(airline) %> | <%= link_to "Delete", airline_path(airline), method: :delete %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to	"Create Airline", new_airline_path %>

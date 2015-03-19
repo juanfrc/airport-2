@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :airlines
-  get 'airlines/index'
+  get 'flights/index'
+
+  resources :airlines, :flights
 
   root 'airlines#index'
 

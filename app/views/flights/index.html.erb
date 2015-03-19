@@ -1,0 +1,19 @@
+<h1>Flights</h1>
+
+<table>
+	<thead>
+		<th>Flight Number</th>
+		<th>Airline</th>
+		<th>Edit | Delete</th>
+	</thead>	
+
+	<% @flights.each do |flight| %>
+		<tr>
+			<td><%= flight.number %></td>
+			<td><%= flight.airline.name %></td>
+			<td><%= link_to "Update", edit_flight_path(flight) %> | <%= link_to "Cancel", flight_path(flight), method: :delete %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to	"New flight", new_flight_path %>

@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319032044) do
+ActiveRecord::Schema.define(version: 20150319211756) do
 
   create_table "airlines", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "flights", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "airline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "flights", ["airline_id"], name: "index_flights_on_airline_id"
 
 end

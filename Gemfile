@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'annotate', '~> 2.6.6'
 
+gem 'bootstrap-sass', '~> 3.3.4'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password

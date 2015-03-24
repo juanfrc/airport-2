@@ -1,0 +1,14 @@
+<h1>Passenger info</h1>
+
+<h3>Name :</h3>
+<%= @passenger.name %>
+<h3>Passport:</h3>
+<%= @passenger.passport %>
+<h3>Flight:</h3>
+<%= @passenger.flight.number %><br>
+
+<%= link_to "Passengers list", flight_passengers_path(params[:flight_id]) %>  <br>
+<%= link_to "Edit", edit_flight_passenger_path(params[:flight_id],@passenger.id)%>
+<%= link_to "Delete", flight_passenger_path(params[:flight_id],@passenger.id), method: :delete %> <br>
+
+

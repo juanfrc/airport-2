@@ -1,0 +1,11 @@
+<h1>Passengers' list</h1>
+
+<ol>
+  <% @passengers.each do |passenger| %>
+
+  <li><%= link_to passenger.name, flight_passenger_path(passenger.flight.id, passenger) %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "Add passenger", new_flight_passenger_path(params[:flight_id]) %> <br>

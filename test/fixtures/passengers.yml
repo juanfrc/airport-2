@@ -1,10 +1,11 @@
 # == Schema Information
 #
-# Table name: flights
+# Table name: passengers
 #
 #  id         :integer          not null, primary key
-#  number     :integer
-#  airline_id :integer
+#  flight_id  :integer
+#  name       :string
+#  passport   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -12,9 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  number: 1
-  airline_id: 
+  flight_id: 
+  name: MyString
+  passport: 1
 
 two:
-  number: 1
-  airline_id: 
+  flight_id: 
+  name: MyString
+  passport: 1

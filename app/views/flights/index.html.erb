@@ -4,13 +4,25 @@
 	<thead>
 		<th>Flight Number</th>
 		<th>Airline</th>
-		<th>Edit | Delete</th>
-	</thead>	
+		<th>Passengers</th>
+		<th>Add Passenger</th>
+		<th>Departure time</th>
+		<th>Status</th>
+		<th>Arrival time</th>
+		<th>Status</th>
+		<th>Update | Delete</th>
+	</thead>
 
 	<% @flights.each do |flight| %>
 		<tr>
 			<td><%= flight.number %></td>
 			<td><%= flight.airline.name %></td>
+			<td><%= link_to flight.passengers.count, flight_passengers_path(flight) %></td>
+			<td><%= link_to "Add passenger", new_flight_passenger_path(flight) %></td>
+			<td><%= flight.departure.date.strftime("%H:%M %d-%b-%Y") %></td>
+			<td><%=flight.departure.status %></td>
+			<td><%= flight.arrival.date.strftime("%H:%M %d-%b-%Y") %></td>
+			<td><%= flight.arrival.status %></td>
 			<td><%= link_to "Update", edit_flight_path(flight) %> | <%= link_to "Cancel", flight_path(flight), method: :delete %></td>
 		</tr>
 	<% end %>

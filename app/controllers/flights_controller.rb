@@ -5,6 +5,8 @@ class FlightsController < ApplicationController
 
   def new
   	@flight = Flight.new
+    @flight.departure = Departure.new
+    @flight.arrival = Arrival.new
   end
 
   def create
@@ -12,7 +14,7 @@ class FlightsController < ApplicationController
   	if @flight.save
   		redirect_to flights_path
   	else
-  		render 'new'	
+  		render 'new'
   	end
   end
 
@@ -38,7 +40,7 @@ class FlightsController < ApplicationController
 
   private
   	def flight_params
-  		params.require(:flight).permit(:airline_id, :number)
+  		params.require(:flight).permit(:airline_id, :number, departure_attributes: [:flight_id, :date, :status], arrival_attributes: [:flight_id, :date, :status])
   	end
 
 end

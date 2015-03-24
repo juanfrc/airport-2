@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: airlines
+# Table name: passengers
 #
 #  id         :integer          not null, primary key
+#  flight_id  :integer
 #  name       :string
+#  passport   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Airline < ActiveRecord::Base
-	has_many :flights, dependent: :destroy
-	validates :name, presence: true, length: { minimum: 3 }
+class Passenger < ActiveRecord::Base
+  belongs_to :flight
 end

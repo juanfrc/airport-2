@@ -38,8 +38,6 @@ class AirlinesController < ApplicationController
   private
   	def airline_params
   		params.require(:airline).permit(:name)
- 
+
   	end
-
-
 end

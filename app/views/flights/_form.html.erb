@@ -1,46 +1,47 @@
-<%= form_for @flight do |f| %>
+<div class="well col-md-6">
+  <%= form_for @flight do |f| %>
 
-  <% if @flight.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:
-      </h2>
-      <ul>
-        <% @flight.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+    <% if @flight.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:
+        </h2>
+        <ul>
+          <% @flight.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+   <p>
+   	<%= f.label "Airline name: " %>
+   	<%= f.collection_select(:airline_id, Airline.all, :id, :name) %>
+   </p>
+    <p>
+      <%= f.label "Flight number: " %>
+      <%= f.number_field :number %>
+    </p>
+    <hr>
+     <h2>Departure:</h2>
+        <%= f.fields_for :departure do |departure| %>
+        <%= departure.label :date %><br>
+        <%= departure.datetime_select :date %><br>
+        <%= departure.label :status%><br>
+        <%= departure.select :status, Departure.statuses.keys.to_a %>
+      <% end %>
+      <hr>
+      <h2>Arrival:</h2>
+        <%= f.fields_for :arrival do |arrival| %>
+        <%= arrival.label :date %><br>
+        <%= arrival.datetime_select :date %><br>
+        <%= arrival.label :status%><br>
+        <%= arrival.select :status, Arrival.statuses.keys.to_a %>
+      <% end %>
+      <hr>
+    <p>
+      <%= f.button :submit => "", class:'btn btn-success' %>
+    </p>
+
   <% end %>
-
- <p>
- 	<%= f.label "Airline name: " %>
- 	<%= f.collection_select(:airline_id, Airline.all, :id, :name) %>
- </p>
-  <p>
-    <%= f.label "Flight number: " %>
-    <%= f.number_field :number %>
-  </p>
-
-
-   <h2>Departure:</h2>
-      <%= f.fields_for :departure do |departure| %>
-      <%= departure.label :date %><br>
-      <%= departure.datetime_select :date %><br>
-      <%= departure.label :status%><br>
-      <%= departure.select :status, Departure.statuses.keys.to_a %>
-    <% end %>
-
-    <h2>Arrival:</h2>
-      <%= f.fields_for :arrival do |arrival| %>
-      <%= arrival.label :date %><br>
-      <%= arrival.datetime_select :date %><br>
-      <%= arrival.label :status%><br>
-      <%= arrival.select :status, Arrival.statuses.keys.to_a %>
-    <% end %>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
-<% end %>
+</div>

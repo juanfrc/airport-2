@@ -1,11 +1,15 @@
 <h1>Passengers' list</h1>
 
-<ol>
-  <% @passengers.each do |passenger| %>
+<div class="container">
+  <div class="well col-md-4">
+    <ol>
+      <% @passengers.each do |passenger| %>
 
-  <li><%= link_to passenger.name, flight_passenger_path(passenger.flight.id, passenger) %>
-    </li>
-  <% end %>
-</ol>
+      <li><%= link_to passenger.name, flight_passenger_path(passenger.flight.id, passenger) %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
 
-<%= link_to "Add passenger", new_flight_passenger_path(params[:flight_id]) %> <br>
+<%= link_to "Add passenger", new_flight_passenger_path(params[:flight_id]), class:"btn btn-success" %> <br>

@@ -1,24 +1,27 @@
-<%= form_for @airline do |f| %>
- 
-  <% if @airline.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@airline.errors.count, "error") %> prohibited this airline from being saved:
-      </h2>
-      <ul>
-        <% @airline.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class='container well col-md-4'>
+  <%= form_for @airline do |f| %>
+
+    <% if @airline.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@airline.errors.count, "error") %> prohibited this airline from being saved:
+        </h2>
+        <ul>
+          <% @airline.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class:"form-control" %>
+    </p>
+    <p>
+      <%= f.button :submit => "", class:"btn btn-success" %>
+    </p>
+
   <% end %>
- 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+
+</div>

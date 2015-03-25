@@ -1,16 +1,16 @@
 <h1>Flights</h1>
 
-<table>
+<table  class="table table-striped text-center">
 	<thead>
-		<th>Flight Number</th>
-		<th>Airline</th>
-		<th>Passengers</th>
-		<th>Add Passenger</th>
-		<th>Departure time</th>
-		<th>Status</th>
-		<th>Arrival time</th>
-		<th>Status</th>
-		<th>Update | Delete</th>
+		<th class="text-center col-md-1">Flight Number</th>
+		<th class="text-center col-md-1">Airline</th>
+		<th class="text-center col-md-1">Passengers</th>
+		<th class="text-center col-md-1">Add Passenger</th>
+		<th class="text-center col-md-2">Departure time</th>
+		<th class="text-center col-md-1">Status</th>
+		<th class="text-center col-md-2">Arrival time</th>
+		<th class="text-center col-md-1">Status</th>
+		<th class="text-center col-md-2">Update | Delete</th>
 	</thead>
 
 	<% @flights.each do |flight| %>
@@ -28,4 +28,4 @@
 	<% end %>
 </table>
 
-<%= link_to	"New flight", new_flight_path %>
+<%= link_to	"New flight", new_flight_path, class:"btn btn-success" %>
